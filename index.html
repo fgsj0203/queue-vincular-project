@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Fila - Senhas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo centralizada no topo -->
+        <div class="logo-container">
+            <img src="/assets/projeto-vincular-image-web.png" alt="logo-projeto-vincular">
+        </div>
+        <header>
+            <h1>Fila de atendimentos - Projeto Vincular</h1>
+            <p>Controle de Senhas para Atendimento</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Painel do Cliente -->
+            <div class="panel client-panel">
+                <h2>🔄 Retirar Senha</h2>
+                <div class="service-types">
+                    <button class="service-btn" data-type="banho" onclick="retirarSenha('banho')">
+                        <span class="service-icon">🚿</span>
+                        <span class="service-name">Banho</span>
+                    </button>
+                    
+                    <button class="service-btn" data-type="atendimentoPsicologico" onclick="retirarSenha('atendimentoPsicologico')">
+                        <span class="service-icon">⭐</span>
+                        <span class="service-name">Atendimento psicológico</span>
+                    </button>
+                    
+                    <button class="service-btn" data-type="juridico" onclick="retirarSenha('juridico')">
+                        <span class="service-icon">💼</span>
+                        <span class="service-name">Jurídico</span>
+                    </button>
+                </div>
+
+                <div id="senhaGerada" class="senha-gerada">
+                    <div id="senhaContent">
+                        <p>Clique em um tipo de atendimento para retirar sua senha</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Painel do Atendente -->
+            <div class="panel attendant-panel">
+                <h2>🎯 Painel do Atendente</h2>
+                
+                <div class="control-panel">
+                    <button class="control-btn chamar" onclick="chamarProximo()">
+                        📢 Chamar Próximo
+                    </button>
+                    <button class="control-btn reiniciar" onclick="reiniciarSistema()">
+                        🔄 Reiniciar Sistema
+                    </button>
+                </div>
+
+                <div class="senha-atual">
+                    <h3>Senha Atual</h3>
+                    <div id="senhaAtualDisplay" class="senha-display">
+                        <span id="senhaAtual">---</span>
+                    </div>
+                </div>
+
+                <div class="ultimas-senhas">
+                    <h3>Últimas Senhas Chamadas</h3>
+                    <div id="ultimasSenhas" class="senhas-list">
+                        <p>Nenhuma senha chamada ainda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display Principal (Para TV/Projetor) -->
+        <div class="display-panel">
+            <h2>🎞️ Display de Senhas</h2>
+            <div id="displayContent" class="display-content">
+                <div class="display-senha">
+                    <span id="displaySenha">---</span>
+                </div>
+                <div class="display-info">
+                    <p>Aguardando próxima senha...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats-panel">
+            <div class="stat-item">
+                <span class="stat-label">Banho</span>
+                <span id="countBanho" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Atendimento psicológico</span>
+                <span id="countAtendimentoPsicologico" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Jurídico</span>
+                <span id="countJuridico" class="stat-value">0</span>
+            </div>
+            <div class="stat-item total">
+                <span class="stat-label">Total</span>
+                <span id="countTotal" class="stat-value">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

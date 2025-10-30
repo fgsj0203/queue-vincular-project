@@ -1,0 +1,547 @@
+/* style.css - Design Moderno para Projeto Vincular */
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #10b981;
+    --accent: #f59e0b;
+    --danger: #ef4444;
+    --dark: #1f2937;
+    --light: #f8fafc;
+    --gray: #6b7280;
+    --gray-light: #e5e7eb;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+/* Logo Container - Centralizado no topo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px 0;
+}
+
+.logo-container img {
+    max-width: 300px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Header Moderno */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+    margin-top: 0;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.025em;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Layout Principal */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.panel h2 {
+    color: var(--dark);
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.panel h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+/* Painel do Cliente - Design Moderno */
+.service-types {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.service-btn {
+    background: white;
+    color: var(--dark);
+    border: 2px solid var(--gray-light);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.service-btn:hover::before {
+    left: 100%;
+}
+
+.service-btn:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-btn[data-type="banho"]:hover {
+    border-color: var(--primary);
+    background: linear-gradient(to right, #f0f4ff, #ffffff);
+}
+
+.service-btn[data-type="atendimentoPsicologico"]:hover {
+    border-color: var(--secondary);
+    background: linear-gradient(to right, #f0fdf4, #ffffff);
+}
+
+.service-btn[data-type="juridico"]:hover {
+    border-color: var(--accent);
+    background: linear-gradient(to right, #fffbeb, #ffffff);
+}
+
+.service-btn .service-icon {
+    font-size: 1.8rem;
+    margin-right: 12px;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.service-btn:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-btn .service-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.senha-gerada {
+    background: var(--light);
+    border: 2px dashed var(--gray-light);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.senha-gerada:hover {
+    border-color: var(--primary);
+}
+
+.senha-gerada p {
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+/* Painel do Atendente - Design Moderno */
+.control-panel {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.control-btn {
+    padding: 16px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.control-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.control-btn:active::after {
+    width: 100px;
+    height: 100px;
+}
+
+.control-btn.chamar {
+    background: linear-gradient(135deg, var(--secondary), #059669);
+    color: white;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+}
+
+.control-btn.chamar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.4);
+}
+
+.control-btn.reiniciar {
+    background: linear-gradient(135deg, var(--danger), #dc2626);
+    color: white;
+    box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+}
+
+.control-btn.reiniciar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(239, 68, 68, 0.4);
+}
+
+.senha-atual {
+    margin-bottom: 30px;
+}
+
+.senha-atual h3 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.senha-display {
+    background: linear-gradient(135deg, var(--dark), #374151);
+    color: white;
+    padding: 24px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    letter-spacing: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ultimas-senhas h3 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.senhas-list {
+    background: var(--light);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.senhas-list p {
+    text-align: center;
+    color: var(--gray);
+    font-style: italic;
+}
+
+.senha-item {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.senha-item:hover {
+    transform: translateX(4px);
+}
+
+/* Display Principal - Design Moderno */
+.display-panel {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.display-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+}
+
+.display-panel h2 {
+    margin-bottom: 30px;
+    color: #f8fafc;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.display-content {
+    padding: 40px 20px;
+    transition: var(--transition);
+}
+
+.display-senha {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #fbbf24;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    letter-spacing: 4px;
+    transition: var(--transition);
+}
+
+.display-info {
+    font-size: 1.5rem;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+/* Estatísticas - Design Moderno */
+.stats-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 24px 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.stat-item:nth-child(1)::before {
+    background: var(--primary);
+}
+
+.stat-item:nth-child(2)::before {
+    background: var(--secondary);
+}
+
+.stat-item:nth-child(3)::before {
+    background: var(--accent);
+}
+
+.stat-item.total::before {
+    background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-item.total {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+.stat-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* Animações Modernas */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .stats-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .display-senha {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    
+    .logo-container img {
+        max-width: 200px;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .panel {
+        padding: 24px 20px;
+    }
+    
+    .service-types {
+        grid-template-columns: 1fr;
+    }
+    
+    .display-senha {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .display-info {
+        font-size: 1.2rem;
+    }
+    
+    .stats-panel {
+        grid-template-columns: 1fr;
+    }
+    
+    .senha-display {
+        font-size: 1.8rem;
+        min-height: 80px;
+    }
+}
+
+/* Scrollbar personalizada moderna */
+.senhas-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.senhas-list::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 3px;
+}
+
+.senhas-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.senhas-list::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
